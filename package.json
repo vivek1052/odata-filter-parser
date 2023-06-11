@@ -1,0 +1,23 @@
+{
+  "name": "odata-filter-parser",
+  "version": "1.0.0",
+  "description": "Parses Odata filter to database filters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sede-uat/odata-filter-parser.git"
+  },
+  "author": "Vivek Parashar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sede-uat/odata-filter-parser/issues"
+  },
+  "homepage": "https://github.com/sede-uat/odata-filter-parser#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
+}
