@@ -45,7 +45,9 @@ export class QueryFilterParser<FilterType> {
   }
 
   protected convertToPostfix(odataQuery: string): string[] {
-    const odataQueryArr: string[] = odataQuery.split(" ");
+    const odataQueryArr: string[] = odataQuery.match(
+      /('[^']+'|(\())|(\))|\w+/g
+    );
 
     const stack = new Stack<string>();
 
@@ -100,9 +102,15 @@ export class QueryFilterParser<FilterType> {
 
     for (const postfixElement of postfix) {
       if (this.isConditionalOperator(postfixElement)) {
-        const value = stack.pop() as string;
+        const value = (stack.pop() as string).replace(/'/g, ``);
         const key = stack.pop() as string;
-        stack.push(this.strategy.mapConditional(postfixElement, key, value));
+        stack.push(
+          this.strategy.mapConditional(
+            postfixElement,
+            key,
+            isNaN(value as any) ? value : Number(value)
+          )
+        );
         continue;
       }
 

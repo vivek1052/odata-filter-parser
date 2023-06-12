@@ -1,5 +1,9 @@
 export interface DBStrategy<FilterType> {
-  mapConditional(operator: string, key: string, value: string): FilterType;
+  mapConditional(
+    operator: string,
+    key: string,
+    value: string | number
+  ): FilterType;
   mapLogic(
     operator: string,
     operand1: FilterType,

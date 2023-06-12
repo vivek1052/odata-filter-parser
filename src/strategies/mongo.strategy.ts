@@ -1,32 +1,35 @@
-import { ConditionalOperator, LogicalOperator } from "src/operator.enum";
+import { ConditionalOperator, LogicalOperator } from "../operator.enum";
 import { DBStrategy } from "./strategy.interface";
 
 export class MongoStrategy implements DBStrategy<Object> {
-  mapConditional(operator: string, key: string, value: string): object {
+  mapConditional(
+    operator: string,
+    key: string,
+    value: string | number
+  ): object {
     const query = {};
-
     switch (operator) {
       case ConditionalOperator.EQ:
-        query[key] = value.slice(1, -1);
+        query[key] = value;
         return query;
       case ConditionalOperator.GT:
         query[key] = {
-          $gt: value.slice(1, -1),
+          $gt: value,
         };
         return query;
       case ConditionalOperator.LT:
         query[key] = {
-          $lt: value.slice(1, -1),
+          $lt: value,
         };
         return query;
       case ConditionalOperator.GTE:
         query[key] = {
-          $gte: value.slice(1, -1),
+          $gte: value,
         };
         return query;
       case ConditionalOperator.LTE:
         query[key] = {
-          $lte: value.slice(1, -1),
+          $lte: value,
         };
         return query;
       default:
