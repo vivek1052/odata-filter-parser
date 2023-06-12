@@ -4,6 +4,9 @@
   "description": "Parses Odata filter to database filters",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rm -rf dist",
     "build": "tsc",
