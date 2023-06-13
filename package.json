@@ -1,6 +1,6 @@
 {
   "name": "@sede-x/odata-filter-parser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Parses Odata filter to database filters",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
