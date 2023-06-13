@@ -37,7 +37,7 @@ You will get a Mongo Db filter which can be directly injected into queries like 
 ```
 As an example, two database strategies are created in this repo (_Mongodb, sqlite_) but one can very easily create/update their specific database strategies by implementing *DBStrategy<FilterType>*. 
  
-  This interface requires two method implementation *mapConditional* which maps 'eq', 'gte' etc to database specific conditional operators and *mapLogic* which maps and, or to database specifc logical operator. 
+  This interface requires two method implementation *mapConditional* which maps *eq, gte* etc to database specific conditional operators and *mapLogic* which maps *and, or* to database specifc logical operator. 
 
 Currently supported operators.
 ```
