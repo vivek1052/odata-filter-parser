@@ -6,6 +6,12 @@ One of the main shortcomings of REST is inability to support filter queries. If 
  This library is created to solve this issue, where we can have simplicity of REST along with filtering capability of Odata. This is a database agnostic library which can be used to parse Odata $filter to a database specific query.
  
 # Example
+
+To install the package, you need to have github PAT authorized to access sede-x.
+```
+npm install @sede-x/odata-filter-parser
+```
+Code Sample:
 ```
   import { QueryFilterParser, MongoStrategy } from "@sede-x/odata-filter-parser";
   
