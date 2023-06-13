@@ -4,6 +4,8 @@ export enum ConditionalOperator {
   LT = "lt",
   GTE = "gte",
   LTE = "lte",
+  NE = "ne",
+  CONTAINS = "contains",
 }
 
 export enum LogicalOperator {

@@ -8,6 +8,8 @@ export class MongoStrategy implements DBStrategy<Object> {
     value: string | number
   ): object {
     const query = {};
+    key = key.replace(/'/g, ``);
+    value = typeof value === "string" ? value.replace(/'/g, ``) : value;
     switch (operator) {
       case ConditionalOperator.EQ:
         query[key] = value;
@@ -32,6 +34,14 @@ export class MongoStrategy implements DBStrategy<Object> {
           $lte: value,
         };
         return query;
+      case ConditionalOperator.NE:
+        query[key] = {
+          $ne: value,
+        };
+      case ConditionalOperator.CONTAINS:
+        query[key] = {
+          $regex: value,
+        };
       default:
         return query;
     }

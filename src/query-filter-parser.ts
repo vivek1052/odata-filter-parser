@@ -30,6 +30,8 @@ export class QueryFilterParser<FilterType> {
     ConditionalOperator.GTE,
     ConditionalOperator.LT,
     ConditionalOperator.LTE,
+    ConditionalOperator.NE,
+    ConditionalOperator.CONTAINS,
   ];
   protected readonly logicOperator: string[] = [
     LogicalOperator.AND,
@@ -102,8 +104,8 @@ export class QueryFilterParser<FilterType> {
 
     for (const postfixElement of postfix) {
       if (this.isConditionalOperator(postfixElement)) {
-        const value = (stack.pop() as string).replace(/'/g, ``);
-        const key = (stack.pop() as string).replace(/'/g, ``);
+        const value = stack.pop() as string;
+        const key = stack.pop() as string;
         stack.push(
           this.strategy.mapConditional(
             postfixElement,

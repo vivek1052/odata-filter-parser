@@ -7,18 +7,19 @@ export class SqliteStratergy implements DBStrategy<string> {
     key: string,
     value: string | number
   ): string {
-    const _value = typeof value === "string" ? `'${value}'` : value;
+    // value = typeof value === "string" ? value.replace(/'/g, ``) : value;
+    // const _value = typeof value === "string" ? `'${value}'` : value;
     switch (operator) {
       case ConditionalOperator.EQ:
-        return `${key} = ${_value}`;
+        return `${key} = ${value}`;
       case ConditionalOperator.GT:
-        return `${key} > ${_value}`;
+        return `${key} > ${value}`;
       case ConditionalOperator.LT:
-        return `${key} < ${_value}`;
+        return `${key} < ${value}`;
       case ConditionalOperator.GTE:
-        return `${key} >= ${_value}`;
+        return `${key} >= ${value}`;
       case ConditionalOperator.LTE:
-        return `${key} <= ${_value}`;
+        return `${key} <= ${value}`;
       default:
         return "";
     }
