@@ -6,6 +6,12 @@ One of the main shortcomings of REST is inability to support filter queries. If 
  This library is created to solve this issue, where we can have simplicity of REST along with filtering capability of Odata. This is a database agnostic library which can be used to parse Odata $filter to a database specific query.
  
 # Example
+
+To install the package, you need to have github PAT authorized to access sede-x.
+```
+npm install @sede-x/odata-filter-parser
+```
+Code Sample:
 ```
   import { QueryFilterParser, MongoStrategy } from "@sede-x/odata-filter-parser";
   
@@ -31,7 +37,7 @@ You will get a Mongo Db filter which can be directly injected into queries like 
 ```
 As an example, two database strategies are created in this repo (_Mongodb, sqlite_) but one can very easily create/update their specific database strategies by implementing *DBStrategy<FilterType>*. 
  
-  This interface requires two method implementation *mapConditional* which maps 'eq', 'gte' etc to database specific conditional operators and *mapLogic* which maps and, or to database specifc logical operator. 
+  This interface requires two method implementation *mapConditional* which maps *eq, gte* etc to database specific conditional operators and *mapLogic* which maps *and, or* to database specifc logical operator. 
 
 Currently supported operators.
 ```
