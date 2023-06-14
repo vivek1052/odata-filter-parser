@@ -38,6 +38,7 @@ export class MongoStrategy implements DBStrategy<Object> {
         query[key] = {
           $ne: value,
         };
+        return query;
       case ConditionalOperator.CONTAINS:
         query[key] = {
           $regex: value,
