@@ -48,7 +48,7 @@ export class QueryFilterParser<FilterType> {
 
   protected convertToPostfix(odataQuery: string): string[] {
     const odataQueryArr: string[] = odataQuery.match(
-      /('[^']+'|(\())|(\))|\w+/g
+      /('[^']+'|(\())|(\))|([\w\.-]+)/g
     );
 
     const stack = new Stack<string>();
