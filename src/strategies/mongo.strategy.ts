@@ -40,9 +40,8 @@ export class MongoStrategy implements DBStrategy<Object> {
         };
         return query;
       case ConditionalOperator.CONTAINS:
-        query[key] = {
-          $regex: value,
-        };
+        query[key] = new RegExp(value.toString(), "i");
+        return query;
       default:
         return query;
     }
